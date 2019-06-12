@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, user-scalable=no, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>document</title>
+	<style type="text/css">
+		body {
+  background-color: #F5F5F5;
+     }
+
+     div{ background-color:#dddddd ; width: 14%; }
+
+     table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+	<h1>CRUD Operations Using Django</h1>
+	<br>
+	<br>
+
+	<table border=1>
+		<tr>
+		<th>STUD_ID</th>
+		<th>NAME</th>
+		<th>BRANCH</th>
+		<th>UPDATE</th>
+		<th>DELETE STUDENT</th>
+	</tr>
+	{% for student in students %}
+	<tr>
+		
+		
+		<td>{{ student.s_id }}</td>
+		<td>{{ student.name }}</td>
+		<td>{{ student.branch }}</td>
+		<td><a href="{% url 'update_student' student.id %}"><h5>Edit</h5></a></td>
+		<td><a href="{% url 'delete_student' student.id %}"><h5>Remove</h5></a></td>
+		<br>
+		
+		
+	</tr>
+	{% endfor %}
+	</table>
+		
+		<br>
+		<br>
+		<div><h2><a href="{% url 'create_student' %}">Add New Student</a></h2></div>
+</body>
+
+</html>
+
